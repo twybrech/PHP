@@ -1,0 +1,14 @@
+{% set books_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+{% for book in books %}
+<a class="book" href="#">
+    {% if book.image %}
+        <img src="{{ app.request.basepath }}/uploads/{{ book.image }}_small.jpg" />
+    {% endif %}
+    <a href="{{ path('bookFile',{'bookId': book.id }) }}"><span class="t">{{ book.titre }} </span></a><br>
+    <em>{{ book.auteur }}</em><br/>
+</a>
+{% endfor %}
+{% endblock %}

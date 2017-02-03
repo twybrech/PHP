@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <img src="{{ app.request.basepath }}/uploads/{{ book.image }}.jpg" />
+    <h2>{{ book.titre }}</h2>
+    <p>Synopsis :{{ book.synopsis }}</p>
+    <ul>
+        {% for copy in copies %}
+        <li>
+          {{ copy.id }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
